@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Менеджер закладок</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Менеджер закладок</h1>
+        <p>Сохраняй и организовывай полезные ссылки</p>
+    </header>
+
+    <main>
+
+        <section class="form-section">
+            <h2>Добавить закладку</h2>
+
+            <form id="bookmark-form">
+                <input
+                    type="url"
+                    id="url"
+                    placeholder="Адрес сайта"
+                    required
+                >
+
+                <input
+                    type="text"
+                    id="title"
+                    placeholder="Название"
+                    required
+                >
+
+                <textarea
+                    id="description"
+                    placeholder="Описание"
+                ></textarea>
+
+                <input
+                    type="text"
+                    id="tags"
+                    placeholder="Теги через запятую"
+                >
+
+                <button type="submit">Добавить закладку</button>
+            </form>
+        </section>
+
+        <section class="search-section">
+            <h2>Мои закладки</h2>
+
+            <input
+                type="text"
+                id="search"
+                placeholder="Поиск по названию"
+            >
+            
+            <div class="tag-select" id="tag-select">
+
+                <button type="button" id="tag-select-button">
+                    <span id="selected-tag-label">Все теги</span>
+                    <span>▼</span>
+                </button>
+
+                <div class="tag-dropdown" id="tag-dropdown" hidden>
+
+                    <input
+                        type="text"
+                        id="tag-search"
+                        placeholder="Поиск тега..."
+                    >
+
+                    <div id="tag-options"></div>
+
+                </div>
+
+            </div>
+
+            <select id="tag-filter" hidden>
+                <option value="">Все теги</option>
+            </select>
+
+            <select id="sort">
+                <option value="desc">Сначала новые</option>
+                <option value="asc">Сначала старые</option>
+            </select>
+
+            <div id="bookmarks-list"></div>
+        </section>
+
+        <section class="report-section">
+            <h2>Статистика по тегам</h2>
+            <button id="report-button">Получить отчёт</button>
+            <div id="report-result"></div>
+        </section>
+
+    </main>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
