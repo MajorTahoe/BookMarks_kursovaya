@@ -15,6 +15,7 @@ app = FastAPI(
     version="1.0.0"
 )
 
+# Разрешаем делать запрос на основной сервис
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["http://localhost:8000"],
@@ -23,6 +24,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# Получение количества закладок для каждого тега в алфавитном порядке
 @app.get("/reports/tags")
 def get_tag_report():
     try:

@@ -1,4 +1,4 @@
-
+# Преобразование документа MongoDB в Python-словарь
 def serialize_bookmark(bookmark):
     return {
         "id": str(bookmark["_id"]),

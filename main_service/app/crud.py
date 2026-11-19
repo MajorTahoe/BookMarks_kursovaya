@@ -4,7 +4,7 @@ from bson import ObjectId
 from app.database import bookmarks_collection
 from app.model import serialize_bookmark
 
-
+# Создание закладки
 def create_bookmark(bookmark_data):
     bookmark = bookmark_data.model_dump(mode="json")
 
@@ -15,6 +15,7 @@ def create_bookmark(bookmark_data):
     return get_bookmark(str(result.inserted_id))
 
 
+# Получение всех закладок
 def get_bookmarks(search=None, tag=None, sort="desc"):
     query = {}
 
@@ -43,6 +44,7 @@ def get_bookmarks(search=None, tag=None, sort="desc"):
     return [serialize_bookmark(bookmark) for bookmark in bookmarks]
 
 
+# Получение 1 закладки
 def get_bookmark(bookmark_id):
     if not ObjectId.is_valid(bookmark_id):
         return None
@@ -57,6 +59,7 @@ def get_bookmark(bookmark_id):
     return serialize_bookmark(bookmark)
 
 
+# Изменение закладки
 def update_bookmark(bookmark_id, bookmark_data):
     if not ObjectId.is_valid(bookmark_id):
         return None
@@ -80,6 +83,7 @@ def update_bookmark(bookmark_id, bookmark_data):
     return get_bookmark(bookmark_id)
 
 
+# Удаление закладки
 def delete_bookmark(bookmark_id):
     if not ObjectId.is_valid(bookmark_id):
         return False

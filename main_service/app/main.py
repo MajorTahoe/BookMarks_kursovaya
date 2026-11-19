@@ -14,7 +14,7 @@ app = FastAPI(
     version="1.0.0"
 )
 
-
+# Проверка доступа к БД
 @app.on_event("startup")
 def startup():
     check_connection()
@@ -22,6 +22,7 @@ def startup():
 
 app.include_router(bookmarks.router)
 
+# Подключаем фронтенд
 FRONTEND_DIR = Path("frontend")
 
 
